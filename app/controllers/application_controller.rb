@@ -8,6 +8,19 @@ class ApplicationController < ActionController::Base
     render 'show'
   end
   
+  def new
+
+  end
+  
+  def create
+    g = Gif.new
+    g.caption = params['caption']
+    g.url = params['url']
+    g.save
+    redirect_to "/gifs/#{g.id}"
+  end  
+  
+
 #   def first
 #       @url = "http://f.cl.ly/items/0R0D3B18221l0H242F3L/tumblr_mbbxc9DUdK1rnvwt1.gif"
 #       @caption = "Overwhelmed"
@@ -25,5 +38,7 @@ class ApplicationController < ActionController::Base
 #     @caption = "Swag"
 #     render 'show'
 #   end
+  
+#   <Gif id: 5, url: "http://i.imgur.com/XVWrWUQ.gif", caption: "Under Water"
   
 end
